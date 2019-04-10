@@ -1,4 +1,4 @@
-import { Dish } from 'git-test/src/app/shared/dish';
+import { Dish } from './dish';
 
 export const DISHES: Dish[] = [
     {

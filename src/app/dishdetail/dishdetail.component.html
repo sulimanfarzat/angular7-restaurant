@@ -4,10 +4,9 @@
     fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center"
     fxLayoutGap="10px" 
-    fxLayoutGap.xs="0"
-    *ngIf="dish">
+    fxLayoutGap.xs="0">
 
-  <div fxFlex="40">
+  <div fxFlex="45" *ngIf="dish">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
@@ -20,26 +19,59 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
+        <button mat-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+        <button mat-button (click)="goBack()">BACK</button>
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
+        <span class="flex-spacer"></span>
+        <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div fxFlex="40">
-      <h3>Comments</h3>
-      <mat-list *ngFor="let item of dish.comments">
-        <mat-list-item>
+
+  <div fxFlex="40" fxLayout="column" *ngIf="dish" >
+    <div fxLayout="row">
+      <mat-list>
+        <h3>Comments</h3>
+        <mat-list-item *ngFor="let item of dishcomm.comments">
           <h4>{{item.comment}}</h4>
-        </mat-list-item>
-        <mat-list-item>
-          <h5>{{item.rating}} Stars</h5>
-        </mat-list-item>
-        <mat-list-item>
+          <p>{{item.rating}} Stars</p>
           <p>-- {{item.author}} {{item.date | date }} </p>
         </mat-list-item>
         <mat-divider></mat-divider>
       </mat-list>
+ </div>
+
+  
+<div fxLayout="row" fxFlexOffset="20px" class="form-size">
+  <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+
+  <form novalidate [formGroup]="commentForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field class="half-width">
+        <input matInput formControlName="name" placeholder="Name" type="text" required>
+        <!-- <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error> -->
+      </mat-form-field>
+    </p>
+    <table class="form-size">
+      <td>
+        <mat-slider formControlName="rating"></mat-slider>
+      </td>
+      </table>
+    <p>
+      <mat-form-field class="full-width">
+        <textarea matInput formControlName="yourcomment" placeholder="Your comment" rows=12></textarea>
+      </mat-form-field>
+    </p>
+    <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+  </form>
+</div>
+</div>
+
+<div fxFlex [hidden]="dish">
+    <mat-spinner></mat-spinner>
+    <h4>loading... pleae wait</h4>
   </div>
 
 </div>
