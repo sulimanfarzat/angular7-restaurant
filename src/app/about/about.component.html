@@ -59,7 +59,7 @@
 
     <mat-list *ngIf="leaders" class="example-card">
         <mat-list-item *ngFor="let item of leaders">
-           <img mat-list-icon src={{item.image}} class="header-image" alt={{item.name}}>
+           <img mat-list-icon src='{{ BaseURL + item.image}}' class="header-image" alt={{item.name}}>
             <!-- <div mat-card-avatar src=item.image class="header-image"></div> -->
             <h4 mat-line>{{item.name}} {{item.abbr}}</h4>
             <p mat-line> {{item.designation}} </p>
