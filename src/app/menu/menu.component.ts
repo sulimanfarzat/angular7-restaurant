@@ -3,11 +3,21 @@ import { Dish } from '../shared/dish';
 import { DishService } from '../services/dish.service';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { DISHES } from '../shared/dishes';
+import { flyInOut } from '../animations/app.animation';
+
 
   @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.scss']
+    styleUrls: ['./menu.component.scss'],
+     // tslint:disable-next-line:use-host-property-decorator
+    host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+    animations: [
+      flyInOut()
+    ]
   })
 
 
