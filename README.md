@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 <br>
 
-<h2>C# screenshot:</h2>
+<h2>project screenshot:</h2>
 
 <img width="958" alt="untitled" src="https://user-images.githubusercontent.com/24265145/56694545-3ab61200-66e7-11e9-9181-124815b75cd0.JPG">
 14
