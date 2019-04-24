@@ -14,17 +14,17 @@ export class LeaderService {
 
   getLeaders(): Observable<Leader[]> {
     // return of(LEADERS).pipe(delay(2000));
-    return this.http.get<Leader[]>(baseURL + 'dishes');
+    return this.http.get<Leader[]>(baseURL + 'leadership');
   }
 
   getLeader(id: string): Observable<Leader> {
     // return of(LEADERS.filter((promo) => (promo.id === id))[0]).pipe(delay(2000));
-    return this.http.get<Leader>(baseURL + 'dishes/' + id);
+    return this.http.get<Leader>(baseURL + 'leadership/' + id);
   }
 
   getFeaturedLeader(): Observable<Leader> {
     // return of(LEADERS.filter((leader) => leader.featured)[0]).pipe(delay(2000));
-    return this.http.get<Leader[]>(baseURL + 'dishes?featured=true').pipe(map(dishes => dishes[0]));
+    return this.http.get<Leader[]>(baseURL + 'leadership?featured=true').pipe(map(leadership => leadership[0]));
   }
 
 
