@@ -33,6 +33,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 12
 <kbd>
 13
-<img width="958" alt="untitled" src="https://user-images.githubusercontent.com/24265145/34458354-a9f4a21e-edce-11e7-8586-ea587f0aefbc.png">
+<img width="958" alt="untitled" src="https://user-images.githubusercontent.com/24265145/56694545-3ab61200-66e7-11e9-9181-124815b75cd0.JPG">
 14
 </kbd>
